@@ -1,0 +1,24 @@
+http://localhost:8080/alfresco/s/api/login?u=akira&pw=akira
+TICKET_db4e1d48a7a9fd8e3ef0a3016221bd32b358e110
+
+http://localhost:8080/alfresco/s/api/login?u=reza&pw=reza
+TICKET_757da1dd32c4d0a9ff727a22e4b0a17490e712d5
+
+http://localhost:8080/alfresco/s/indesso/falcon/qrcodegenerator?nodeRef=workspace://SpacesStore/0629839b-2e64-4cb3-9cc6-1ec41d0119f2&attach=false&alf_ticket=TICKET_757da1dd32c4d0a9ff727a22e4b0a17490e712d5
+
+
+
+
+
+curl                                             
+    -X POST                                      
+    -u admin:password                            
+    --data-binary "D:\AlfrescoCom51\tomcat\_WORKSPACE_\Git\alfresco-java-code-executer\example-project\target\classes\com\itdhq\ajce\example\HelloWorld.class"            
+    -H 'Content-Type: application/octect-stream' 
+    http://localhost:8080/alfresco/s/api/ajce
+
+
+D:\\AlfrescoCom51\\tomcat\\_WORKSPACE_\\Git\\alfresco-java-code-executer\\example-project\\target\\classes\\com\\itdhq\\ajce\\example\\HelloWorld.class
+
+
+D:\AlfrescoCom51\tomcat\_WORKSPACE_\Git\alfresco-java-code-executer\example-project\target\example-project-0.2-SNAPSHOT.jar

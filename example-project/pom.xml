@@ -1,0 +1,121 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.itdhq.ajce</groupId>
+    <artifactId>example-project</artifactId>
+    <version>0.2-SNAPSHOT</version>
+
+    <name>Example project that uses AJCE</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+    </properties>
+
+    <repositories>
+<!--		<repository>
+			<id>local-repo</id>
+			<name>Local Repository</name>
+			<url>file://D:/.m2/repository</url>
+		</repository>-->
+        <repository>
+            <id>alfresco-public</id>
+            <url>https://artifacts.alfresco.com/nexus/content/groups/public</url>
+        </repository>
+        <repository>
+            <id>itd-nexus</id>
+            <url>http://nexus.itdhq.com/content/repositories/releases/</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>itd-nexus</id>
+            <url>http://nexus.itdhq.com/content/repositories/releases/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.itdhq.ajce</groupId>
+            <artifactId>ajce</artifactId>
+            <version>0.2-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+	    <dependency>
+            <groupId>org.alfresco</groupId>
+            <artifactId>alfresco-repository</artifactId>
+            <version>5.2.f</version>
+            <scope>provided</scope>
+        </dependency>
+		
+<!--		<dependency>
+            <groupId>org.alfresco</groupId>
+            <artifactId>alfresco-remote-api</artifactId>
+            <version>8.107</version>
+            <type>jar</type>
+        </dependency>
+		<dependency>
+            <groupId>org.alfresco.maven</groupId>
+            <artifactId>alfresco-rad</artifactId>
+            <version>4.0.0</version>
+            <scope>test</scope>
+        </dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>-->
+		
+        <!-- QR Code Generator -->
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>javase</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+		
+		<!-- JSON Parser -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.8</version>
+		</dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>helloworld</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.itdhq.ajce.maven</groupId>
+                        <artifactId>ajce-maven-plugin</artifactId>
+                        <version>0.2-SNAPSHOT</version>
+                        <configuration>
+                            <baseUrl>http://localhost:8080/alfresco</baseUrl>
+                            <adminPassword>admin</adminPassword>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <phase>integration-test</phase>
+                                <configuration>
+                                    <className>com.itdhq.ajce.example.HelloWorld</className>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>
